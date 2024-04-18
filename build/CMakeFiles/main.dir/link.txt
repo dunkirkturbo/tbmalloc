@@ -1,0 +1,1 @@
+g++   -std=c++17 -O3   CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/central_cache.cpp.o CMakeFiles/main.dir/page_cache.cpp.o CMakeFiles/main.dir/thread_cache.cpp.o  -o main  -lpthread 

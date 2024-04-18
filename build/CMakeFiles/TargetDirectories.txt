@@ -1,0 +1,3 @@
+/home/dktb/Desktop/cpp_test/memory_pool/mem_pool/build/CMakeFiles/rebuild_cache.dir
+/home/dktb/Desktop/cpp_test/memory_pool/mem_pool/build/CMakeFiles/edit_cache.dir
+/home/dktb/Desktop/cpp_test/memory_pool/mem_pool/build/CMakeFiles/main.dir
