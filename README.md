@@ -4,7 +4,7 @@
 * The memory pool is divided into three layers: `thread_cache`, `central_cache` and `page_cache`.
 * `thread_cache` is private for each thread. It maintains the array of linked lists (`_freelists[104]`), where each linked list is responsible for memory of the same size. 
   
-  ![](img/tc.jpg)
+  ![](https://github.com/dunkirkturbo/tbmalloc/blob/master/img/tc.jpg)
 
 * `central_cache` is public and unique. It maintains the array of doubly circular linked lists (`_blocklists[104]`), but each linked list is responsible for several blocks. The `struct block` manages large block of memory in page units. The `_freelist` member variable in struct is for maintaining the addresses of the split small memory blocks.
   
@@ -26,13 +26,13 @@
 
   The `central_cache` will fetch and distribute small memory from the corresponding block's freelist based on the size required by  `thread_cache`. The implementation involves some other tricks, such as batch allocation, low start algorithm, etc.
 
-  ![](img/cc.jpg)
+  ![](https://github.com/dunkirkturbo/tbmalloc/blob/master/img/cc.jpg)
 
 * `page_cache` is public and unique. It maintains the array of doubly circular linked lists (`_blocklists[128]`). However, each block in `_blocklists[k]` manages memory that spans $k+1$ pages (**unsplit**).
   
   The page_cache is the only layer that invokes `brk` or `mmap`. When the central_cache runs out of memory, it requests blocks of several page sizes from the page_cache. This part of pc involves tricks similar to the **buddy system algorithm**.
 
-  ![](img/pc.jpg)
+  ![](https://github.com/dunkirkturbo/tbmalloc/blob/master/img/pc.jpg)
 
 * Other tricks: 
   
